@@ -10,9 +10,13 @@
     'author': 'Iteam-$ CO',
     'website': 'https://iteam-s.mg/',
     'depends': [
+        'base', 'contacts',
     ],
     'data': [
+        'security/res_partner.xml',
+        'views/res_partner.xml',
     ],
     'demo': [
+        'demo/res_partner.xml',
     ],
 }

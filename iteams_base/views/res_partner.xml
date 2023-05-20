@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright 2023 Iteam-$ CO
+     License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record model="ir.ui.view" id="res_partner_form_inherit_iteams_base">
+        <field name="name">res.partner.form.inherit.iteams.base</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="vat" position="after">
+                <field name="is_member"/>
+            </field>
+            <xpath expr="//page[@name='contact_addresses']" position="attributes">
+                <attribute name="autofocus">0</attribute>
+            </xpath>
+            <xpath expr="//page[@name='contact_addresses']" position="before">
+                <page string="Membership" id="membership" autofocus="autofocus">
+                    <form>
+                        <sheet>
+                            <group>
+                                <group>
+                                    <field name="last_name"/>
+                                    <field name="gender"/>
+                                    <field name="size"/>
+                                </group>
+                                <group>
+                                    <field name="enterprise_id"/>
+                                    <field name="poste"/>
+                                </group>
+                                <group>
+                                    <field name="university_id"/>
+                                    <field name="sector_university"/>
+                                    <field name="level_universty"/>
+                                </group>
+
+                            </group>
+                        </sheet>
+                    </form>
+
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+<!--    <record id="view_partner_search_inherit_iteams_base"  model="ir.ui.view">-->
+<!--        <field name="name">partner.search.inherit.iteams.base</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="base.view_res_partner_filter"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="user_id" position="after">-->
+<!--                <field name="is_member"/>-->
+<!--            </field>-->
+<!--            <xpath expr="//search" position="inside">-->
+<!--                <filter-->
+<!--                        name="is_member_filter"-->
+<!--                        string="Members"-->
+<!--                        domain="[('is_member', '=', True)]"-->
+<!--                        default="1"-->
+<!--                />-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+
+</odoo>
